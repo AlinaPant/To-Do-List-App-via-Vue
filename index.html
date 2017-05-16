@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>to do</title>
+	<style>
+		// $btn: #5FBDA8; // cyan
+		// $base: #1E3354; // blue
+		// $bg_list: #52424A // violet
+
+
+		body {
+		  width: 100%;
+		  min-height: 100vh;
+		  overflow-x: hidden;
+		}
+
+		#toDoList {
+		}
+
+		ul {
+		  list-style: none;
+		  
+		  span {
+			display: inline-block;
+		  }
+		}
+
+		.btn {
+		  cursor: pointer;
+		}
+
+		.taskDone {
+		  text-decoration: line-through;
+		  background: #5FBDA8;
+		}
+	</style>
+</head>
+<body>
+	<div id="toDoList">
+	  <h1>{{title}}</h1>
+	  <input type="text" autocomplete="off" placeholder="What else to add?" v-model="tasks.name" @keyup.enter="newItem"/>
+	  <input type="submit" value="add" class="btn btn_add" @click="newItem">
+	  <ul>
+		<li v-for="task in tasks">
+		  <span :class="{taskDone: task.done}">{{task.name}}</span>
+		  <input type="checkbox" v-model="task.done">
+		  <span>/</span>
+		  <span @click="delItem(task)" class="btn">{{task.del}}</span>
+		</li>
+	  </ul>
+	</div>
+	<script src="vue.js"></script>
+	<script>
+		new Vue ({
+		  el: '#toDoList',
+		  data: {
+			title: 'to do list',
+			tasks: [
+			  {
+				name: 'drink a cup of coffee',
+				done: false,
+				del: '-'
+			  },
+			  {
+				name: 'read a book',
+				done: false,
+				del: '-'
+			  },
+			  {
+				name: 'eat pizza',
+				done: false,
+				del: '-'
+			  }
+			]
+		  },
+		  methods: {    
+			newItem: function () {
+			  if (!this.tasks.name) {
+				return
+			  }
+			  this.tasks.push ( {
+				name: this.tasks.name,
+				done: false,
+				del: '-'
+			  })
+			},
+			delItem: function (task) {
+			  this.tasks.splice(this.tasks.indexOf(task), 1)
+			}
+		  }  
+		})
+	</script>
+</body>
+</html>
