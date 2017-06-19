@@ -1,6 +1,8 @@
-:---:
-##todo app via VueJS
+<p style="text-align: center;">
 
---------------------
-![todo example](https://github.com/AlinaPant/To-Do-List-App-via-Vue/todo_vue.gif)
-###Check out on [Codepen](https://codepen.io/AlinaPant/pen/weoVMM)
+# todo app via VueJS
+***
+![example](https://raw.githubusercontent.com/AlinaPant/To-Do-List-App-via-Vue/master/todo_vue.gif)
+***
+### Check out on [Codepen](https://codepen.io/AlinaPant/pen/weoVMM)
+</p>
